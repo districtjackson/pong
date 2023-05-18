@@ -1,6 +1,6 @@
 extends Node2D
 
-var ball = preload("res://ball.tscn")
+@export var ball_scene: PackedScene
 
 @export var delay = 2
 var serveSide
@@ -12,12 +12,15 @@ var player2Score = 0
 func _ready():
 	randomize()
 	serveSide = randi() % 2
+
 	
 	_startRound()
 
 func _startRound():
-	ball.instantiate()
+	var ball = ball_scene.instantiate()
 	ball.setup(delay, serveSide)
+	
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -25,12 +28,12 @@ func _process(delta):
 
 # When main sees that the ball scores, increment the score, check if either player has reached the score limit, and if not spawn another ball
 func _on_ball_score(side):
-	# 
+	# Update points on the UI
 	
-	if(player1Score >= 10):
-		pass
+	if(player1Score >= 10): 
+		pass # UI element pops up saying who wins, then game goes back to main menu
 	elif(player2Score >= 10):
 		pass
-		
-	serveSide = side # Set the ball to serve to the player who scored last
-	_startRound()
+	else:	
+		serveSide = side # Set the ball to serve to the player who scored last
+		_startRound()

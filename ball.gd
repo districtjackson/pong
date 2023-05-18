@@ -9,6 +9,8 @@ var serveSide = 0
 func setup(delay = 2, side = 0):
 	delayLength = delay
 	serveSide = side
+	
+	print("Ball Created")
 
 	$Start.start(delayLength)
 
@@ -26,3 +28,4 @@ func _process(delta):
 
 func _on_timer_timeout():
 	## Impart force
+	pass
