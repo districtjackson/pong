@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bll00uigoblwd"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_864cy"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_864cy")
+delay = null
