@@ -18,6 +18,7 @@ func _ready():
 
 	_startRound()
 
+# Instantiate new ball and hook it into the main scene
 func _startRound():
 	var ball = ball_scene.instantiate()
 	add_child(ball)
@@ -26,7 +27,6 @@ func _startRound():
 
 # When main sees that the ball scores, increment the score, check if either player has reached the score limit, and if not spawn another ball
 func _on_ball_score(side):
-	print("Scored!")
 	
 	if(side == -1):
 		leftScore += 1

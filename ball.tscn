@@ -11,13 +11,14 @@ bounce = 1.0
 size = Vector2(40, 40)
 
 [node name="Ball" type="RigidBody2D"]
-position = Vector2(550, 330)
+position = Vector2(980, 560)
 physics_material_override = SubResource("PhysicsMaterial_lwnim")
 gravity_scale = 0.0
 max_contacts_reported = 1
 contact_monitor = true
 lock_rotation = true
 script = ExtResource("1_ce0yg")
+speed = 450
 metadata/_edit_group_ = true
 
 [node name="StartTimer" type="Timer" parent="."]

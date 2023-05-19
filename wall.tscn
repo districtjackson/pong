@@ -5,11 +5,11 @@ friction = 0.0
 bounce = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pj6x7"]
-size = Vector2(1152, 14)
+size = Vector2(1920, 14)
 
 [node name="Wall" type="StaticBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_rifys")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(576, -7)
+position = Vector2(960, -7)
 shape = SubResource("RectangleShape2D_pj6x7")

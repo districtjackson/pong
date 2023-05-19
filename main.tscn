@@ -13,10 +13,10 @@ ball_scene = ExtResource("2_548ip")
 [node name="TopWall" parent="." instance=ExtResource("3_hp631")]
 
 [node name="BottomWall" parent="." instance=ExtResource("3_hp631")]
-position = Vector2(0, 662)
+position = Vector2(0, 1094)
 
 [node name="RightPaddle" parent="." instance=ExtResource("4_lu4t4")]
-position = Vector2(1091, 325)
+position = Vector2(1847, 361)
 
 [node name="LeftPaddle" parent="." instance=ExtResource("4_lu4t4")]
 position = Vector2(80, 320)
