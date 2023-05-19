@@ -5,8 +5,8 @@ extends Node2D
 @export var delay = 2
 var serveSide
 
-var player1Score = 0
-var player2Score = 0
+var leftScore = 0
+var rightScore = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,11 +28,16 @@ func _startRound():
 func _on_ball_score(side):
 	print("Scored!")
 	
-	# Update points on the UI
+	if(side == -1):
+		leftScore += 1
+		$HUD/LeftScore.text = str(leftScore)
+	elif(side == 1):
+		rightScore += 1
+		$HUD/RightScore.text = str(rightScore)
 	
-	if(player1Score >= 10): 
+	if(leftScore >= 10): 
 		pass # UI element pops up saying who wins, then game goes back to main menu
-	elif(player2Score >= 10):
+	elif(rightScore >= 10):
 		pass
 	else:	
 		serveSide = side # Set the ball to serve to the player who scored last

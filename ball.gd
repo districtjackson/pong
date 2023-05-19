@@ -18,7 +18,7 @@ func setup(delay = 2, side = -1):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# If ball goes out either side, tells main that there was a goal and which side, then deletes itself
-	if(position.x <= 0): # This is scoring for some reason
+	if(position.x <= 0): 
 		score.emit(1)
 		queue_free()
 	elif(position.x >= 1152):
@@ -28,15 +28,11 @@ func _process(delta):
 # When game delay timer stops, ball starts moving
 func _on_timer_timeout():	
 	apply_central_impulse(Vector2(speed * serveSide, speed * serveSide))
-	
-	## Impart force, maybe have to use set_physics_process
-	print("Force Applied")
 
-# When ball stops touching a paddle, apply impulse in its new direction
+# When ball stops touching a paddle, apply impulse in its new direction to give it a boost and make the game more competitive further into the round
 func _on_body_exited(body):
-	print(linear_velocity)
-	
+
 	if(body.name == "RightPaddle" or body.name == "LeftPaddle"):
 		apply_central_impulse(linear_velocity / 2)
-		print("Force Applied")
+
 		
