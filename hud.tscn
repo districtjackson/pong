@@ -1,17 +1,62 @@
-[gd_scene load_steps=2 format=3 uid="uid://k6501is4rl7d"]
+[gd_scene load_steps=5 format=3 uid="uid://k6501is4rl7d"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_e0uug"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sl7ql"]
+font_size = 160
 
 [sub_resource type="LabelSettings" id="LabelSettings_a1ps0"]
-font_size = 48
+font_size = 80
+
+[sub_resource type="Theme" id="Theme_848fr"]
+default_font_size = 80
 
 [node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_e0uug")
+
+[node name="LeftWin" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.5
+offset_top = -13.0
+offset_right = 38.5
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Left Wins!"
+label_settings = SubResource("LabelSettings_sl7ql")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RightWin" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.5
+offset_top = -13.0
+offset_right = 38.5
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Right Wins!"
+label_settings = SubResource("LabelSettings_sl7ql")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="LeftScore" type="Label" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -60.0
-offset_right = -20.0
-offset_bottom = 70.0
+offset_left = -150.0
+offset_right = -100.0
+offset_bottom = 113.0
 grow_horizontal = 2
 text = "0"
 label_settings = SubResource("LabelSettings_a1ps0")
@@ -22,11 +67,44 @@ vertical_alignment = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 20.0
-offset_right = 60.0
-offset_bottom = 70.0
+offset_left = 100.0
+offset_right = 150.0
+offset_bottom = 113.0
 grow_horizontal = 2
 text = "0"
 label_settings = SubResource("LabelSettings_a1ps0")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -221.0
+offset_top = -120.0
+offset_right = 221.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_848fr")
+text = "Start Game"
+
+[node name="QuitButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -221.0
+offset_top = 10.0
+offset_right = 221.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_848fr")
+text = "Quit Game"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

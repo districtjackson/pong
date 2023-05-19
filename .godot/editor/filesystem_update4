@@ -5,3 +5,4 @@ res://wall.tscn
 res://paddle.tscn
 res://main.gd
 res://ball.gd
+res://hud.gd
