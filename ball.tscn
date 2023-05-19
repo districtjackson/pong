@@ -1,16 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvj8pdu883y6w"]
+[gd_scene load_steps=4 format=3 uid="uid://dvj8pdu883y6w"]
 
 [ext_resource type="Script" path="res://ball.gd" id="1_ce0yg"]
 [ext_resource type="Texture2D" uid="uid://btrpjjdtoyvdn" path="res://assets/Pong Ball.png" id="2_68wh5"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pqikh"]
+size = Vector2(40, 40)
+
 [node name="Ball" type="Node2D"]
+position = Vector2(500, 500)
 script = ExtResource("1_ce0yg")
 
-[node name="Start" type="Timer" parent="."]
+[node name="StartTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 3
 texture = ExtResource("2_68wh5")
 
-[connection signal="timeout" from="Start" to="." method="_on_timer_timeout"]
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_pqikh")
+
+[connection signal="timeout" from="StartTimer" to="." method="_on_timer_timeout"]

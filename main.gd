@@ -13,14 +13,12 @@ func _ready():
 	randomize()
 	serveSide = randi() % 2
 
-	
 	_startRound()
 
 func _startRound():
 	var ball = ball_scene.instantiate()
+	add_child(ball)
 	ball.setup(delay, serveSide)
-	
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

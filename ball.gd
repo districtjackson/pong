@@ -9,23 +9,20 @@ var serveSide = 0
 func setup(delay = 2, side = 0):
 	delayLength = delay
 	serveSide = side
-	
-	print("Ball Created")
 
-	$Start.start(delayLength)
+	$StartTimer.start(delayLength)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	# If ball goes out either side, tell main that there was a goal and which side, then delete itself
-	if(position.x >= 0):
+	# If ball goes out either side, tells main that there was a goal and which side, then deletes itself
+	if(position.x <= 0): # This is scoring for some reason
 		score.emit(1)
 		queue_free()
-	elif(position.x <= 1920):
+	elif(position.x >= 1920):
 		score.emit(0)
 		queue_free()
 
-
 func _on_timer_timeout():
-	## Impart force
-	pass
+	## Impart force, maybe have to use set_physics_process
+	print("Timed Out")
