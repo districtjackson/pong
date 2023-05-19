@@ -14,6 +14,8 @@ size = Vector2(40, 40)
 position = Vector2(550, 330)
 physics_material_override = SubResource("PhysicsMaterial_lwnim")
 gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
 lock_rotation = true
 script = ExtResource("1_ce0yg")
 metadata/_edit_group_ = true
@@ -28,4 +30,5 @@ shape = SubResource("RectangleShape2D_gc2wx")
 z_index = 3
 texture = ExtResource("2_68wh5")
 
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_timer_timeout"]

@@ -26,6 +26,8 @@ func _startRound():
 
 # When main sees that the ball scores, increment the score, check if either player has reached the score limit, and if not spawn another ball
 func _on_ball_score(side):
+	print("Scored!")
+	
 	# Update points on the UI
 	
 	if(player1Score >= 10): 
