@@ -12,17 +12,17 @@ var player2Score = 0
 func _ready():
 	randomize()
 	serveSide = randi() % 2
+	
+	if(serveSide == 0):
+		serveSide = -1
 
 	_startRound()
 
 func _startRound():
 	var ball = ball_scene.instantiate()
 	add_child(ball)
+	ball.score.connect(_on_ball_score)
 	ball.setup(delay, serveSide)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 # When main sees that the ball scores, increment the score, check if either player has reached the score limit, and if not spawn another ball
 func _on_ball_score(side):
