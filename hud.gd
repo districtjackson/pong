@@ -22,12 +22,13 @@ func _on_quit_button_pressed():
 	
 func _end_game(winner):
 	if(winner == -1):
-		$HUD/LeftWin.show()
+		$LeftWin.show()
 	elif(winner == 1):
-		$HUD/RightWin.show()
+		$RightWin.show()
 		
-	# show proper winner label
-	# one shot timer
-	# winner label disappears
+	await get_tree().create_timer(3.0).timeout
+	$LeftWin.hide()
+	$RightWin.hide()
+	
 	# reset scores
 	# bring up buttons
