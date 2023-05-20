@@ -11,10 +11,16 @@ var rightScore = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
+	Engine.set_physics_ticks_per_second(240)
 
 # Start game connecting function
 func _on_hud_start():
 	serveSide = randi() % 2
+	
+	leftScore = 0
+	rightScore = 0
+	$HUD/LeftScore.text = str(leftScore)
+	$HUD/RightScore.text = str(rightScore)
 	
 	if(serveSide == 0):
 		serveSide = -1

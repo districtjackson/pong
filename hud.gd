@@ -15,6 +15,10 @@ func _process(delta):
 func _on_start_button_pressed():
 	$StartButton.hide()
 	$QuitButton.hide()
+	
+	$LeftScore.show()
+	$RightScore.show()
+	
 	start.emit()
 
 func _on_quit_button_pressed():
@@ -30,5 +34,8 @@ func _end_game(winner):
 	$LeftWin.hide()
 	$RightWin.hide()
 	
-	# reset scores
-	# bring up buttons
+	$LeftScore.hide()
+	$RightScore.hide()
+	
+	$StartButton.show()
+	$QuitButton.show()

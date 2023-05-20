@@ -14,7 +14,7 @@ win_amount = 3
 [node name="TopWall" parent="." instance=ExtResource("3_hp631")]
 
 [node name="BottomWall" parent="." instance=ExtResource("3_hp631")]
-position = Vector2(0, 1094)
+position = Vector2(0, 1172)
 
 [node name="RightPaddle" parent="." instance=ExtResource("4_lu4t4")]
 position = Vector2(1847, 361)
