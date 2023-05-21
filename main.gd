@@ -14,8 +14,10 @@ func _ready():
 	Engine.set_physics_ticks_per_second(240)
 
 # Start game connecting function
-func _on_hud_start():
+func _on_hud_start(singleplayer):
 	serveSide = randi() % 2
+	
+	$RightPaddle.singleplayer = singleplayer
 	
 	leftScore = 0
 	rightScore = 0
@@ -31,6 +33,9 @@ func _on_hud_start():
 func _startRound():
 	var ball = ball_scene.instantiate()
 	add_child(ball)
+	$RightPaddle.ball = ball
+	$RightPaddle.set_process(true)
+	$LeftPaddle.set_process(true)
 	ball.score.connect(_on_ball_score)
 	ball.setup(delay, serveSide)
 

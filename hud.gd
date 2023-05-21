@@ -1,28 +1,26 @@
 extends CanvasLayer
 
-signal start()
+signal start(singeplayer)
 signal quit()
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _on_start_singleplayer_button_pressed():
+	start_game(true)
 
+func _on_start_multiplayer_button_pressed():
+	start_game(false)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-func _on_start_button_pressed():
-	$StartButton.hide()
+func _on_quit_button_pressed():
+	quit.emit()
+	
+func start_game(singleplayer):
+	$StartSingleplayerButton.hide()
+	$StartMultiplayerButton.hide()
 	$QuitButton.hide()
 	
 	$LeftScore.show()
 	$RightScore.show()
 	
-	start.emit()
-
-func _on_quit_button_pressed():
-	quit.emit()
+	start.emit(singleplayer)
 	
 func _end_game(winner):
 	if(winner == -1):
@@ -37,5 +35,12 @@ func _end_game(winner):
 	$LeftScore.hide()
 	$RightScore.hide()
 	
-	$StartButton.show()
+	$StartSingleplayerButton.show()
+	$StartMultiplayerButton.show()
 	$QuitButton.show()
+
+
+
+
+
+

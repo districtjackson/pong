@@ -13,7 +13,7 @@ size = Vector2(26, 216)
 [node name="Paddle" type="StaticBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_yfarb")
 script = ExtResource("1_rgl4g")
-speed = 900
+speed = 1200
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
