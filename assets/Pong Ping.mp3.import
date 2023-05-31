@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://beknuyqpdkpsa"
+path="res://.godot/imported/Pong Ping.mp3-32c409cbd9d9d5e41d1723e970760173.mp3str"
+
+[deps]
+
+source_file="res://assets/Pong Ping.mp3"
+dest_files=["res://.godot/imported/Pong Ping.mp3-32c409cbd9d9d5e41d1723e970760173.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

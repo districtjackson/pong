@@ -1,3 +1,6 @@
+AudioStreamPlayer2D
+AudioStreamPlayer
+TextureRect
 Button
 Label
 CanvasLayer

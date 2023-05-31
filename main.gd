@@ -18,6 +18,8 @@ func _on_hud_start(singleplayer):
 	serveSide = randi() % 2
 	
 	$RightPaddle.singleplayer = singleplayer
+	$LeftPaddle.set_process(true)
+	$RightPaddle.set_process(true)
 	
 	leftScore = 0
 	rightScore = 0
@@ -34,13 +36,14 @@ func _startRound():
 	var ball = ball_scene.instantiate()
 	add_child(ball)
 	$RightPaddle.ball = ball
-	$RightPaddle.set_process(true)
-	$LeftPaddle.set_process(true)
+
 	ball.score.connect(_on_ball_score)
 	ball.setup(delay, serveSide)
 
 # When main sees that the ball scores, increment the score, check if either player has reached the score limit, and if not spawn another ball
 func _on_ball_score(side):
+#	if($RightPaddle.singleplayer):
+#		$RightPaddle.ball = $RightPaddle
 	
 	if(side == -1):
 		leftScore += 1
@@ -50,12 +53,20 @@ func _on_ball_score(side):
 		$HUD/RightScore.text = str(rightScore)
 	
 	if(leftScore >= win_amount): 
-		$HUD._end_game(-1)
+		_end_game(-1)
 	elif(rightScore >= win_amount):
-		$HUD._end_game(1)
+		_end_game(1)
 	else:	
 		serveSide = side # Set the ball to serve to the player who scored last
+		$ScoreSound.play()
+		
 		_startRound()
+
+func _end_game(winner):
+	$LeftPaddle.set_process(false)
+	$RightPaddle.set_process(false)
+	$HUD._end_game_screen(winner)
+	$WinSound.play()
 
 # Quit game button
 func _on_hud_quit():

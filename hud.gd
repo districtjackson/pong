@@ -22,7 +22,7 @@ func start_game(singleplayer):
 	
 	start.emit(singleplayer)
 	
-func _end_game(winner):
+func _end_game_screen(winner):
 	if(winner == -1):
 		$LeftWin.show()
 	elif(winner == 1):

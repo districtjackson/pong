@@ -1,8 +1,7 @@
-res://hud.tscn
-res://hud.gd
-res://main.gd
-res://main.tscn
 res://ball.tscn
+res://ball.gd
+res://main.tscn
 res://wall.tscn
 res://paddle.tscn
-res://paddle.gd
+res://hud.tscn
+res://main.gd
